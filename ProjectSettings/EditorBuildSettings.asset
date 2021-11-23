@@ -4,5 +4,29 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/InitializeAudio.unity
+    guid: 8688514771f65484dae69763bab4086c
+  - enabled: 1
+    path: Assets/Scenes/InitializePersistentData.unity
+    guid: 8a628c934f0074a43bbd7f0b73772225
+  - enabled: 1
+    path: Assets/Scenes/Volume.unity
+    guid: 5f859d7e89c139c4292c2a8c1d4ec28a
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: aa0857103095a9f45849fbe83be80e3a
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 7b61b2ed4d4caa742bf84b48a9e75d49
+  - enabled: 1
+    path: Assets/Scenes/HighScores.unity
+    guid: 0b6bad609e68a844ea3344352e31e0b5
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 259dadacb956d9a4683215a1efbdc008
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 74e076bde9daa144fa4efb82c7dbd39f
   m_configObjects: {}
