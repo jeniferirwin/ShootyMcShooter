@@ -12,7 +12,6 @@ namespace Shooty.UI
         {
             if (PersistentData.PlayerName != "")
             {
-                Debug.Log($"Trying to set name to {PersistentData.PlayerName}");
                 nameText.text = PersistentData.PlayerName;
                 nameText.Select();
                 nameText.DeactivateInputField();
