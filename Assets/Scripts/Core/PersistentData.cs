@@ -32,6 +32,28 @@ namespace Shooty.Core
         private static WeaponType _chosenType;
         public static WeaponType ChosenWeaponType { get { return _chosenType; } }
         
+        private static int _score;
+        public static int Score { get { return _score; } }
+        
+        private static int _missed;
+        public static int Missed { get { return _missed; } }
+        
+        public static void ResetScore()
+        {
+            _score = 0;
+            _missed = 0;
+        }
+        
+        public static void IncrementScore()
+        {
+            _score += 1;
+        }
+        
+        public static void IncrementMissed()
+        {
+            _missed += 1;
+        }
+
         public static void SetPlayerName(string name)
         {
             _playerName = "";
