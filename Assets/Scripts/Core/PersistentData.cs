@@ -23,6 +23,15 @@ namespace Shooty.Core
         public static string PlayerName { get { return _playerName; } } 
         private const string REG_NAME = @"^[A-Za-z][A-Za-z0-9 ]*$";
         
+        public enum WeaponType
+        {
+            Pistol,
+            Rifle
+        }
+        
+        private static WeaponType _chosenType;
+        public static WeaponType ChosenWeaponType { get { return _chosenType; } }
+        
         public static void SetPlayerName(string name)
         {
             _playerName = "";
@@ -44,6 +53,11 @@ namespace Shooty.Core
             Regex rx = new Regex(REG_NAME);
             if (rx.Match(input).Success) return true;
             return false;
+        }
+        
+        public static void SetChosenWeaponType(WeaponType type)
+        {
+            _chosenType = type;
         }
     }
 }

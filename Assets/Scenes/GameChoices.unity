@@ -1193,6 +1193,8 @@ GameObject:
   - component: {fileID: 996535395}
   - component: {fileID: 996535394}
   - component: {fileID: 996535393}
+  - component: {fileID: 996535396}
+  - component: {fileID: 996535397}
   m_Layer: 5
   m_Name: Pistol
   m_TagString: Untagged
@@ -1263,7 +1265,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 996535394}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996535396}
+        m_TargetAssemblyTypeName: Shooty.UI.WeaponChoiceInput, Assembly-CSharp
+        m_MethodName: SetWeaponType
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Pistol
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 996535397}
+        m_TargetAssemblyTypeName: Shooty.Core.SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &996535394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1302,6 +1328,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996535391}
   m_CullTransparentMesh: 1
+--- !u!114 &996535396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996535391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539f85ef65c89ba4fa5da0864480676a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &996535397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996535391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad129d0f0bd9cf64280e4fc546717bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  immediate: 0
+  scene: 6
 --- !u!1 &1101799700
 GameObject:
   m_ObjectHideFlags: 0
@@ -2133,6 +2185,8 @@ GameObject:
   - component: {fileID: 2110232182}
   - component: {fileID: 2110232181}
   - component: {fileID: 2110232180}
+  - component: {fileID: 2110232183}
+  - component: {fileID: 2110232184}
   m_Layer: 5
   m_Name: Rifle
   m_TagString: Untagged
@@ -2203,7 +2257,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2110232181}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2110232183}
+        m_TargetAssemblyTypeName: Shooty.UI.WeaponChoiceInput, Assembly-CSharp
+        m_MethodName: SetWeaponType
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Rifle
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2110232184}
+        m_TargetAssemblyTypeName: Shooty.Core.SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2110232181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2242,3 +2320,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110232178}
   m_CullTransparentMesh: 1
+--- !u!114 &2110232183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110232178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539f85ef65c89ba4fa5da0864480676a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2110232184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110232178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad129d0f0bd9cf64280e4fc546717bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  immediate: 0
+  scene: 6
