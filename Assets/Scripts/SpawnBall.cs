@@ -5,12 +5,6 @@ namespace Shooty
 {
     public class SpawnBall : MonoBehaviour
     {
-        [SerializeField] private GameObject prefab;
-        [SerializeField] private float minForce;
-        [SerializeField] private float maxForce;
-        [SerializeField] private float minCooldown;
-        [SerializeField] private float maxCooldown;
-        
         private GameObject myActiveBall;
         private float _currentCooldown;
         
@@ -29,17 +23,17 @@ namespace Shooty
         
         private void LaunchTarget()
         {
-            myActiveBall = GameObject.Instantiate(prefab, transform.position, Quaternion.identity);
+            myActiveBall = GameObject.Instantiate(SpawnerSettings.Prefab, transform.position, Quaternion.identity);
             var rb = myActiveBall.GetComponent<Rigidbody>();
-            var newForce = Random.Range(minForce, maxForce);
+            var newForce = Random.Range(SpawnerSettings.MinForce, SpawnerSettings.MaxForce);
             rb.AddForce(Vector3.up * newForce, ForceMode.Impulse);
         }
         
         private float GetNewCooldown()
         {
-            var min = minCooldown * GetDifficultyMultiplier();
-            var max = maxCooldown * GetDifficultyMultiplier();
-            return Random.Range(minCooldown, maxCooldown);
+            var min = SpawnerSettings.MinCooldown * GetDifficultyMultiplier();
+            var max = SpawnerSettings.MaxCooldown * GetDifficultyMultiplier();
+            return Random.Range(min, max);
         }
         
         private float GetDifficultyMultiplier()
