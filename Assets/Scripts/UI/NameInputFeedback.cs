@@ -7,6 +7,7 @@ namespace Shooty.UI
     public class NameInputFeedback : MonoBehaviour
     {
         [SerializeField] private GameObject instructions;
+        [SerializeField] private GameObject clickNotification;
         [SerializeField] private GameObject buttons;
         [SerializeField] private Color successColor;
         [SerializeField] private Color failColor;
@@ -18,10 +19,12 @@ namespace Shooty.UI
             {
                 instructions.SetActive(false);
                 buttons.SetActive(true);
-                panel.color = successColor;                
+                clickNotification.SetActive(false);
+                panel.color = successColor;             
             }
             else if (!PersistentData.IsPlayerNameValid())
             {
+                clickNotification.SetActive(false);
                 instructions.SetActive(true);
                 buttons.SetActive(false);
                 panel.color = failColor;
