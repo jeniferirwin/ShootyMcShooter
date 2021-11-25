@@ -1,13 +1,15 @@
+using System;
 using UnityEngine;
 using System.Text.RegularExpressions;
 
 namespace Shooty.Core
 {
-    public class PersistentData : MonoBehaviour
+    public class PersistentData
     {
-        private PersistentData _instance;
-        public PersistentData Instance { get { return _instance; } }
+        private static PersistentData _instance;
+        public static PersistentData Instance { get { return _instance; } }
         
+        /*
         private void Awake()
         {
             if (Instance != null)
@@ -18,6 +20,9 @@ namespace Shooty.Core
             _instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        */
+        
+        // **** END SINGLETON STUFF ****
         
         private static string _playerName = "";
         public static string PlayerName { get { return _playerName; } } 
@@ -38,20 +43,26 @@ namespace Shooty.Core
         private static int _missed;
         public static int Missed { get { return _missed; } }
         
+        public delegate void OnStatsChanged(object sender, EventArgs e);
+        public static event OnStatsChanged StatsChanged;
+        
         public static void ResetScore()
         {
             _score = 0;
             _missed = 0;
+            StatsChanged?.Invoke(Instance, EventArgs.Empty);
         }
         
         public static void IncrementScore()
         {
             _score += 1;
+            StatsChanged?.Invoke(Instance, EventArgs.Empty);
         }
         
         public static void IncrementMissed()
         {
             _missed += 1;
+            StatsChanged?.Invoke(Instance, EventArgs.Empty);
         }
 
         public static void SetPlayerName(string name)

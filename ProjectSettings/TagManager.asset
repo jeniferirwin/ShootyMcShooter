@@ -5,8 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Target
-  - Metal
-  - ExplosiveBarrel
   layers:
   - Default
   - TransparentFX
@@ -14,7 +12,7 @@ TagManager:
   - 
   - Water
   - UI
-  - arms
+  - Targets
   - 
   - 
   - 

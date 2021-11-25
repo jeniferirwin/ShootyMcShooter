@@ -13,8 +13,9 @@ namespace Shooty
             mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         }
 
-        public void OnShoot()
+        public void OnShoot(InputAction.CallbackContext context)
         {
+            if (!context.started) return;
             var ray = mainCamera.ScreenPointToRay(mousePos);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
@@ -22,6 +23,7 @@ namespace Shooty
                 Target target;
                 if (hit.transform.gameObject.TryGetComponent<Target>(out target))
                 {
+                    if (!hit.transform.gameObject.CompareTag("Target")) return;
                     target.GetShot();
                 }
             }

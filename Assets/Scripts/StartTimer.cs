@@ -5,14 +5,16 @@ namespace Shooty
 {
     public class StartTimer : MonoBehaviour
     {
+        [SerializeField] private int timer;
         [SerializeField] private TMP_Text countdownText;
         [SerializeField] private GameObject spawners;
 
-        private int _countdown = 5;
+        private int _countdown;
         private float _tick = 1;
 
         private void Start()
         {
+            _countdown = timer;
             countdownText.text = _countdown.ToString();
         }
         private void Update()
