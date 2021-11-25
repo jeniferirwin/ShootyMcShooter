@@ -10,13 +10,13 @@ namespace Shooty.Core
 
         public void Start()
         {
-            if (PersistentData.ChosenWeaponType == PersistentData.WeaponType.Pistol)
+            if (PersistentData.ChosenTargetType == PersistentData.TargetType.Sphere)
             {
-                text.text = "Pistol";
+                text.text = "Sphere";
             }
-            else if (PersistentData.ChosenWeaponType == PersistentData.WeaponType.Rifle)
+            else if (PersistentData.ChosenTargetType == PersistentData.TargetType.Cube)
             {
-                text.text = "Rifle";
+                text.text = "Cube";
             }
         }
     }

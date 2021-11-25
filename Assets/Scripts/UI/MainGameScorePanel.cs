@@ -8,6 +8,7 @@ namespace Shooty.UI
     public class MainGameScorePanel : MonoBehaviour
     {
         [SerializeField] private TMP_Text hits;
+        [SerializeField] private TMP_Text scale;
         [SerializeField] private TMP_Text misses;
         
 
@@ -24,8 +25,10 @@ namespace Shooty.UI
 
         private void UpdateScore(object sender, EventArgs e)
         {
+            var scaleCalc = 1.5f * PersistentData.ScaleReduction();
             hits.text = $"Hits: {PersistentData.Score}";
-            misses.text = $"Misses: {PersistentData.Missed}";
+            scale.text = $"Scale: {scaleCalc.ToString("#.##")}";
+            misses.text = $"Escaped: {PersistentData.Missed}";
         }
     }
 }

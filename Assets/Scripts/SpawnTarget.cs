@@ -3,7 +3,7 @@ using Shooty.Core;
 
 namespace Shooty
 {
-    public class SpawnBall : MonoBehaviour
+    public class SpawnTarget : MonoBehaviour
     {
         private GameObject myActiveBall;
         private float _currentCooldown;
@@ -27,6 +27,10 @@ namespace Shooty
             var rb = myActiveBall.GetComponent<Rigidbody>();
             var newForce = Random.Range(SpawnerSettings.MinForce, SpawnerSettings.MaxForce);
             rb.AddForce(Vector3.up * newForce, ForceMode.Impulse);
+            var torqueX = Random.Range(-20, 20);
+            var torqueY = Random.Range(-20, 20);
+            var torqueZ = Random.Range(-20, 20);
+            rb.AddTorque(new Vector3(torqueX, torqueY, torqueZ), ForceMode.Impulse);
         }
         
         private float GetNewCooldown()

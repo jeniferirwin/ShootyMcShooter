@@ -14,7 +14,8 @@ namespace Shooty.Core
             Credits,
             HighScores,
             Main,
-            GameChoices
+            GameChoices,
+            Instructions
         }
 
         [SerializeField] private bool immediate;

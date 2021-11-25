@@ -5,12 +5,15 @@ namespace Shooty
 {
     public class Target : MonoBehaviour
     {
-        private bool wasShot;
+        private void Awake()
+        {
+            var scale = transform.localScale;
+            transform.localScale = transform.localScale * PersistentData.ScaleReduction();
+            Debug.Log($"{PersistentData.ScaleReduction()}");
+        }
 
         public void GetShot()
         {
-            if (wasShot) return;
-            wasShot = true;
             PersistentData.IncrementScore();
             Destroy(gameObject);
         }

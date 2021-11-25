@@ -1,3 +1,5 @@
+using System;
+using Shooty.Core;
 using UnityEngine;
 
 namespace Shooty
@@ -17,7 +19,8 @@ namespace Shooty
             _instance = this;
         }
 
-        [SerializeField] private GameObject prefab;
+        [SerializeField] private GameObject spherePrefab;
+        [SerializeField] private GameObject cubePrefab;
         [SerializeField] private float minCooldown;
         [SerializeField] private float maxCooldown;
         [SerializeField] private float minForce;
@@ -27,6 +30,30 @@ namespace Shooty
         public static float MaxCooldown { get { return Instance.maxCooldown; } }
         public static float MinForce { get { return Instance.minForce; } }
         public static float MaxForce { get { return Instance.maxForce; } }
-        public static GameObject Prefab { get { return Instance.prefab; } }
+
+        public static GameObject Prefab
+        {
+            get
+            {
+                if (PersistentData.ChosenTargetType == PersistentData.TargetType.Cube)
+                {
+                    return Instance.cubePrefab;
+                }
+                else
+                {
+                    return Instance.spherePrefab;
+                }
+            }
+        }
+        
+        private void Start()
+        {
+            PersistentData.GameOver += GameOver;
+        }
+        
+        private void GameOver(object sender, EventArgs e)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

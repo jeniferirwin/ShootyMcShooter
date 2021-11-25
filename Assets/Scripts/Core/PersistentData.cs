@@ -28,14 +28,14 @@ namespace Shooty.Core
         public static string PlayerName { get { return _playerName; } } 
         private const string REG_NAME = @"^[A-Za-z][A-Za-z0-9 ]*$";
         
-        public enum WeaponType
+        public enum TargetType
         {
-            Pistol,
-            Rifle
+            Sphere,
+            Cube
         }
         
-        private static WeaponType _chosenType;
-        public static WeaponType ChosenWeaponType { get { return _chosenType; } }
+        private static TargetType _chosenType;
+        public static TargetType ChosenTargetType { get { return _chosenType; } }
         
         private static int _score;
         public static int Score { get { return _score; } }
@@ -43,9 +43,20 @@ namespace Shooty.Core
         private static int _missed;
         public static int Missed { get { return _missed; } }
         
+        private static bool _hasPlayedBefore;
+        public static bool HasPlayedBefore { get { return _hasPlayedBefore; } }
+        
         public delegate void OnStatsChanged(object sender, EventArgs e);
         public static event OnStatsChanged StatsChanged;
+
+        public delegate void OnGameOver(object sender, EventArgs e);
+        public static event OnGameOver GameOver;
         
+        public static float ScaleReduction()
+        {
+            return 1f - (Score / 1.01f / 100f);
+        }
+
         public static void ResetScore()
         {
             _score = 0;
@@ -63,6 +74,10 @@ namespace Shooty.Core
         {
             _missed += 1;
             StatsChanged?.Invoke(Instance, EventArgs.Empty);
+            if (_missed >= 5)
+            {
+                GameOver?.Invoke(Instance, EventArgs.Empty);
+            }
         }
 
         public static void SetPlayerName(string name)
@@ -88,9 +103,13 @@ namespace Shooty.Core
             return false;
         }
         
-        public static void SetChosenWeaponType(WeaponType type)
+        public static void SetChosenTargetType(TargetType type)
         {
             _chosenType = type;
+        }
+        public static void SetTutorialSeen()
+        {
+            _hasPlayedBefore = true;
         }
     }
 }
