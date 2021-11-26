@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using Shooty.Core;
 
 namespace Shooty
 {
@@ -16,6 +17,7 @@ namespace Shooty
         {
             _countdown = timer;
             countdownText.text = _countdown.ToString();
+            PersistentData.ResetScore();
         }
         private void Update()
         {

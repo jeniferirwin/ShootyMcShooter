@@ -18,16 +18,15 @@ namespace Shooty.UI
             PersistentData.StatsChanged += UpdateScore;
         }
         
-        private void OnDisable()
+        private void OnDestroy()
         {
             PersistentData.StatsChanged -= UpdateScore;
         }
 
         private void UpdateScore(object sender, EventArgs e)
         {
-            var scaleCalc = 1.5f * PersistentData.ScaleReduction();
             hits.text = $"Hits: {PersistentData.Score}";
-            scale.text = $"Scale: {scaleCalc.ToString("#.##")}";
+            scale.text = $"Scale: {PersistentData.CurrentScale.ToString("#.##")}";
             misses.text = $"Escaped: {PersistentData.Missed}";
         }
     }

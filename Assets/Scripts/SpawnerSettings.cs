@@ -51,6 +51,11 @@ namespace Shooty
             PersistentData.GameOver += GameOver;
         }
         
+        private void OnDestroy()
+        {
+            PersistentData.GameOver -= GameOver;
+        }
+        
         private void GameOver(object sender, EventArgs e)
         {
             gameObject.SetActive(false);

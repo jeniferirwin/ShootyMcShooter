@@ -7,9 +7,8 @@ namespace Shooty
     {
         private void Awake()
         {
-            var scale = transform.localScale;
-            transform.localScale = transform.localScale * PersistentData.ScaleReduction();
-            Debug.Log($"{PersistentData.ScaleReduction()}");
+            var scale = PersistentData.CurrentScale;
+            transform.localScale = new Vector3(scale, scale, scale);
         }
 
         public void GetShot()

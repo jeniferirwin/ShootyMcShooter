@@ -7,10 +7,10 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/InitializeAudio.unity
-    guid: 8688514771f65484dae69763bab4086c
-  - enabled: 0
-    path: Assets/Scenes/InitializePersistentData.unity
-    guid: 8a628c934f0074a43bbd7f0b73772225
+    guid: fd90fb14c230fa5418a53be3652738a9
+  - enabled: 1
+    path: Assets/Scenes/InitializeHighScores.unity
+    guid: 1c81fa8f77093fd4cb08ad5759f2cea9
   - enabled: 1
     path: Assets/Scenes/Volume.unity
     guid: 5f859d7e89c139c4292c2a8c1d4ec28a
