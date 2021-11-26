@@ -1,4 +1,8 @@
+using System;
+using System.IO;
 using UnityEngine;
+using Shooty.Core;
+using Shooty.UI;
 
 namespace Shooty.Audio
 {
@@ -11,7 +15,6 @@ namespace Shooty.Audio
         {
             if (Instance != null)
             {
-                Debug.Log("Destroying extra VolumeController...");
                 Destroy(gameObject);
                 return;
             }
@@ -37,8 +40,9 @@ namespace Shooty.Audio
             _defaultVolume = defaultVolume;
             sfxPlayer.volume = _defaultVolume;
             musicPlayer.volume = _defaultVolume;
+            TryLoadPrefs();
         }
-        
+
         public static void SetMusicVolume(float volume)
         {
             musicPlayer.volume = volume;
@@ -50,6 +54,16 @@ namespace Shooty.Audio
             if (!sfxPlayer.isPlaying)
             {
                 sfxPlayer.PlayOneShot(Instance.testClip);
+            }
+        }
+
+        private static void TryLoadPrefs()
+        {
+            Shooty.UI.PlayerPrefs prefs;
+            if (UserPrefs.LoadPrefs(out prefs))
+            {
+                sfxPlayer.volume = prefs.sfxVolume;
+                musicPlayer.volume = prefs.musicVolume;
             }
         }
     }

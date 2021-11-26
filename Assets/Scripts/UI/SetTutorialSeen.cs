@@ -1,5 +1,6 @@
 using Shooty.Core;
 using UnityEngine;
+using Shooty.UI;
 
 namespace Shooty
 {
@@ -14,6 +15,7 @@ namespace Shooty
             {
                 instructions.SetActive(true);
                 PersistentData.SetTutorialSeen();
+                UserPrefs.SavePrefs();
             }
             else
             {

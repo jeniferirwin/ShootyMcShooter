@@ -257,6 +257,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130083483}
   m_CullTransparentMesh: 1
+--- !u!1 &171314565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 171314567}
+  - component: {fileID: 171314566}
+  m_Layer: 0
+  m_Name: TutorialSeen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &171314566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171314565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742fd296da71a7a4f977f46b561508a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &171314567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171314565}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &400643398
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +397,7 @@ RectTransform:
   - {fileID: 758477547}
   - {fileID: 2040331038}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1046,7 +1089,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &957853521
 GameObject:
@@ -1197,6 +1240,7 @@ GameObject:
   - component: {fileID: 996535393}
   - component: {fileID: 996535396}
   - component: {fileID: 996535397}
+  - component: {fileID: 996535398}
   m_Layer: 5
   m_Name: Cube
   m_TagString: Untagged
@@ -1280,6 +1324,18 @@ MonoBehaviour:
           m_StringArgument: Cube
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 996535398}
+        m_TargetAssemblyTypeName: Shooty.UI.SaveUserChoices, Assembly-CSharp
+        m_MethodName: SaveChoices
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 996535397}
         m_TargetAssemblyTypeName: Shooty.Core.SceneLoader, Assembly-CSharp
         m_MethodName: LoadScene
@@ -1356,6 +1412,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   immediate: 0
   scene: 8
+--- !u!114 &996535398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996535391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8988cc4a402a54046aed4854a92ad489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1101799700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,7 +1954,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1876778576
 GameObject:
@@ -2337,6 +2405,7 @@ GameObject:
   - component: {fileID: 2110232180}
   - component: {fileID: 2110232183}
   - component: {fileID: 2110232184}
+  - component: {fileID: 2110232185}
   m_Layer: 5
   m_Name: Sphere
   m_TagString: Untagged
@@ -2420,6 +2489,18 @@ MonoBehaviour:
           m_StringArgument: Sphere
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2110232185}
+        m_TargetAssemblyTypeName: Shooty.UI.SaveUserChoices, Assembly-CSharp
+        m_MethodName: SaveChoices
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2110232184}
         m_TargetAssemblyTypeName: Shooty.Core.SceneLoader, Assembly-CSharp
         m_MethodName: LoadScene
@@ -2496,3 +2577,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   immediate: 0
   scene: 8
+--- !u!114 &2110232185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110232178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8988cc4a402a54046aed4854a92ad489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

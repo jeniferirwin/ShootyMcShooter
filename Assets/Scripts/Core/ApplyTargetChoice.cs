@@ -4,7 +4,7 @@ using TMPro;
 
 namespace Shooty.Core
 {
-    public class ApplyWeaponChoice : MonoBehaviour
+    public class ApplyTargetChoice : MonoBehaviour
     {
         [SerializeField] private TMP_Text text;
 

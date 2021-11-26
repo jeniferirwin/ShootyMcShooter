@@ -35,6 +35,7 @@ namespace Shooty.Core
         }
 
         public static string SavePath { get { return Application.persistentDataPath + "/shootySavefile.json"; } }
+        public static string PrefsSavePath { get { return Application.persistentDataPath + "/shootyPrefsfile.json"; } }
         private static TargetType _chosenType;
         public static TargetType ChosenTargetType { get { return _chosenType; } }
 
@@ -91,6 +92,11 @@ namespace Shooty.Core
                 GameOver?.Invoke(Instance, EventArgs.Empty);
             }
         }
+        
+        public static void ForceGameOver()
+        {
+            GameOver?.Invoke(Instance, EventArgs.Empty);
+        }
 
         public static void SetPlayerName(string name)
         {
@@ -99,6 +105,11 @@ namespace Shooty.Core
             {
                 _playerName = name;
             }
+        }
+        
+        public static void ClearPlayerName()
+        {
+            _playerName = "";
         }
 
         public static bool IsPlayerNameValid()

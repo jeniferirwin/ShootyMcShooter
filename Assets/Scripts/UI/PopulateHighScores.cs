@@ -28,6 +28,12 @@ namespace Shooty.UI
                 control.SetNameText(slot.name);
                 control.SetScoreText(slot.score.ToString("F"));
             }
+            SaveScoreData();
+        }
+        
+        public static void ClearScoreData()
+        {
+            data = new SaveData();
         }
 
         public static void InitializeScoreData()
