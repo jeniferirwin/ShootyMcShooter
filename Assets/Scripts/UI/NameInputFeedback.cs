@@ -15,20 +15,7 @@ namespace Shooty.UI
 
         public void ChangeColor()
         {
-            if (PersistentData.IsPlayerNameValid())
-            {
-                instructions.SetActive(false);
-                buttons.SetActive(true);
-                clickNotification.SetActive(false);
-                panel.color = successColor;             
-            }
-            else if (!PersistentData.IsPlayerNameValid())
-            {
-                clickNotification.SetActive(false);
-                instructions.SetActive(true);
-                buttons.SetActive(false);
-                panel.color = failColor;
-            }
+            // TODO: rewrite
         }
     }
 }

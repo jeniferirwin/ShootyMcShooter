@@ -1602,7 +1602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   immediate: 0
-  scene: 5
+  scene: 6
 --- !u!1 &1486108728
 GameObject:
   m_ObjectHideFlags: 0

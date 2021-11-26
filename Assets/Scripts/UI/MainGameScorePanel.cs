@@ -9,25 +9,25 @@ namespace Shooty.UI
     {
         [SerializeField] private TMP_Text hits;
         [SerializeField] private TMP_Text scale;
-        [SerializeField] private TMP_Text misses;
+        [SerializeField] private TMP_Text escapes;
         
 
         private void OnEnable()
         {
-            UpdateScore(this, EventArgs.Empty);
-            PersistentData.StatsChanged += UpdateScore;
+            UpdateScore();
+            RoundData.StatsChanged += UpdateScore;
         }
         
         private void OnDestroy()
         {
-            PersistentData.StatsChanged -= UpdateScore;
+            RoundData.StatsChanged -= UpdateScore;
         }
 
-        private void UpdateScore(object sender, EventArgs e)
+        private void UpdateScore()
         {
-            hits.text = $"Hits: {PersistentData.Score}";
-            scale.text = $"Scale: {PersistentData.CurrentScale.ToString("#.##")}";
-            misses.text = $"Escaped: {PersistentData.Missed}";
+            hits.text = $"Hits: {RoundData.Score}";
+            scale.text = $"Scale: {RoundData.CurrentScale.ToString("#.##")}";
+            escapes.text = $"Escaped: {RoundData.Escaped}";
         }
     }
 }

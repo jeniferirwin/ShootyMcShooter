@@ -7,15 +7,12 @@ namespace Shooty.UI
     public class InputExistingName : MonoBehaviour
     {
         [SerializeField] private TMP_InputField nameText;
-        
+
         private void Start()
         {
-            if (PersistentData.PlayerName != "")
-            {
-                nameText.text = PersistentData.PlayerName;
-                nameText.Select();
-                nameText.DeactivateInputField();
-            }
+            nameText.text = Game.Data.Prefs.PlayerName;
+            nameText.Select();
+            nameText.DeactivateInputField();
         }
     }
 }
