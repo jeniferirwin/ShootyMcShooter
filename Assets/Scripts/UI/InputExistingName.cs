@@ -10,7 +10,15 @@ namespace Shooty.UI
 
         private void Start()
         {
-            nameText.text = Game.Data.Prefs.PlayerName;
+            if (NameValidation.IsValidAsPlayerName(Game.Data.Prefs.PlayerName))
+            {
+                nameText.text = Game.Data.Prefs.PlayerName;
+            }
+            else
+            {
+                nameText.text = Game.DEFAULT_PLAYER_NAME;
+            }
+
             nameText.Select();
             nameText.DeactivateInputField();
         }
