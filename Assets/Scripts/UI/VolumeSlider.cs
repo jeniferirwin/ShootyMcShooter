@@ -37,10 +37,12 @@ namespace Shooty.UI
             if (type == VolumeType.Music)
             {
                 Game.MusicPlayer.volume = value;
+                Game.Data.Prefs.MusicVolume = value;
             }
             else if (type == VolumeType.SFX)
             {
                 Game.SFXPlayer.volume = value;
+                Game.Data.Prefs.SFXVolume = value;
                 if (Game.SFXPlayer.isPlaying || !_started) return;
                 Game.SFXPlayer.PlayOneShot(sfxTestClip);
             }

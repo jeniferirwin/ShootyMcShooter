@@ -23,5 +23,10 @@ namespace Shooty.Core
             Game.Data.EraseAllData();
             DataManagement.SaveDataToFile(Game.Data);
         }
+        
+        public static void DMSaveData()
+        {
+            DataManagement.SaveDataToFile(Game.Data);
+        }
     }
 }
