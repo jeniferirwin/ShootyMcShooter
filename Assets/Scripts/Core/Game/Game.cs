@@ -1,12 +1,13 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Shooty.Core
 {
     public class Game
     {
-        private const string DEFAULT_PLAYER_NAME = "Player";
-        private const float DEFAULT_VOLUME = 0.1f;
+        public const string DEFAULT_PLAYER_NAME = "Player";
+        public const float DEFAULT_VOLUME = 0.1f;
 
         public static SaveFileData Data { get; private set; }
         public static AudioSource SFXPlayer { get; private set; }
@@ -28,14 +29,19 @@ namespace Shooty.Core
             SFXPlayer = SFXPlayerObject.AddComponent<AudioSource>();
             MusicPlayer = MusicPlayerObject.AddComponent<AudioSource>();
             
+            MusicPlayer.clip = backgroundMusic;
+            ApplyAudioSettings();
+            MusicPlayer.Play();
+        }
+        
+        public static void ApplyAudioSettings()
+        {
             SFXPlayer.volume = Data.Prefs.SFXVolume;
             SFXPlayer.playOnAwake = false;
             SFXPlayer.loop = false;
 
             MusicPlayer.volume = Data.Prefs.MusicVolume;
-            MusicPlayer.clip = backgroundMusic;
             MusicPlayer.loop = true;
-            MusicPlayer.Play();
         }
     }
 }

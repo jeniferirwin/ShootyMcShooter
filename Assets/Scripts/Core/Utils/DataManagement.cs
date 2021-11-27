@@ -12,28 +12,30 @@ namespace Shooty.Core
 
         public static SaveFileData SaveDataFromFile()
         {
-            SaveFileData data;
             if (File.Exists(SaveFilePath))
             {
                 string rawText = File.ReadAllText(SaveFilePath);
-                data = JsonUtility.FromJson<SaveFileData>(rawText);
-                return data;
+                SaveFileData fileData = JsonUtility.FromJson<SaveFileData>(rawText);
+                if (ValidateSaveFile(fileData))
+                {
+                    return fileData;
+                }
             }
-            return null;
+            return new SaveFileData(Game.DEFAULT_PLAYER_NAME, Game.DEFAULT_VOLUME);
+        }
+        
+        public static bool ValidateSaveFile(SaveFileData data)
+        {
+            if (data.HighScores == null) return false;
+            if (data.Prefs == null) return false;
+            if (!NameValidation.IsValidAsPlayerName(data.Prefs.PlayerName)) return false;
+            return true;
         }
         
         public static void SaveDataToFile(SaveFileData data)
         {
             string rawText = JsonUtility.ToJson(data);
             File.WriteAllText(SaveFilePath, rawText);
-        }
-        
-        public static void ClearSaveData()
-        {
-            if (File.Exists(SaveFilePath))
-            {
-                File.Delete(SaveFilePath);
-            }
         }
     }
 
@@ -47,6 +49,23 @@ namespace Shooty.Core
         {
             HighScores = new HighScoreData();
             Prefs = new PrefsData(defaultPlayerName, defaultVolume);
+        }
+        
+        public void ErasePreferences()
+        {
+            Prefs = new PrefsData(Game.DEFAULT_PLAYER_NAME, Game.DEFAULT_VOLUME);
+            Game.ApplyAudioSettings();
+        }
+        
+        public void EraseHighScores()
+        {
+            HighScores = new HighScoreData();
+        }
+        
+        public void EraseAllData()
+        {
+            ErasePreferences();
+            EraseHighScores();
         }
     }
 

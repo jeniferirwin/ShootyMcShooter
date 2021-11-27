@@ -11,13 +11,7 @@ namespace Shooty
     public enum Scenes
     {
         InitializeGameData,
-        InitializeAudio,
-        Volume,
         Title,
-        Credits,
-        HighScores,
-        Instructions,
-        GameChoices,
         Main
     }
 

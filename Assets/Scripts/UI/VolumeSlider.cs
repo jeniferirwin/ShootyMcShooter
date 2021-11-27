@@ -8,43 +8,42 @@ namespace Shooty.UI
     {
         [SerializeField] private VolumeType type;
         [SerializeField] private Slider slider;
-        [SerializeField] private AudioSource source;
-        [SerializeField] private string sourceName;
+        [SerializeField] private AudioClip sfxTestClip;
+        
+        // small hack to keep the shot sound from playing unprompted if
+        // we've erased prefs and then gone back into the volume panel
+        private bool _started;
 
-        public void SetSourceVolume()
+        private void OnEnable()
         {
             if (type == VolumeType.Music)
             {
-                VolumeController.SetMusicVolume(slider.value);
+                slider.value = Game.MusicPlayer.volume;
             }
             else if (type == VolumeType.SFX)
             {
-                VolumeController.SetSFXVolume(slider.value);
+                slider.value = Game.SFXPlayer.volume;
             }
+            _started = true;
+        }
+        
+        private void OnDisable()
+        {
+            _started = false;
         }
 
-        private void Start()
+        public void SetSourceVolume(float value)
         {
-            if (source == null)
+            if (type == VolumeType.Music)
             {
-                source = GameObject.Find(sourceName).GetComponent<AudioSource>();
-                if (source == null)
-                {
-                    Debug.LogError($"The audio source {sourceName} can't be found!");
-                }
+                Game.MusicPlayer.volume = value;
             }
-            SetInitialVolume();
-        }
-
-        private void SetInitialVolume()
-        {
-            if (source == null)
+            else if (type == VolumeType.SFX)
             {
-                slider.value = 0.1f;
-                return;
+                Game.SFXPlayer.volume = value;
+                if (Game.SFXPlayer.isPlaying || !_started) return;
+                Game.SFXPlayer.PlayOneShot(sfxTestClip);
             }
-            float curVolume = source.volume;
-            slider.SetValueWithoutNotify(curVolume);
         }
     }
 }
