@@ -75,6 +75,7 @@ namespace Shooty.Core
 
         public void AddScore(string playerName, int finalScore)
         {
+            if (playerName == "" || !NameValidation.IsValidAsPlayerName(playerName) || finalScore <= 0) return;
             HighScoreSlot slot = new HighScoreSlot(playerName, finalScore);
             Slots.Add(slot);
             Slots.Sort((x, y) => y.FinalScore.CompareTo(x.FinalScore));
