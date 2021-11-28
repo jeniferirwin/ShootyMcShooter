@@ -1,13 +1,12 @@
+using System;
 using UnityEngine;
 
 namespace Shooty.Core
 {
     public class RoundData
     {
-        public delegate void OnStatsChanged();
-        public delegate void OnGameOver();
-        public static event OnStatsChanged StatsChanged;
-        public static event OnGameOver GameOver;
+        public static event EventHandler StatsChanged;
+        public static event EventHandler GameOver;
 
         public static TargetType ChosenTargetType { get { return _chosenType; } }
         public static int Score { get { return _score; } }
@@ -30,40 +29,32 @@ namespace Shooty.Core
             }
         }
 
-        public static float CurrentScale
-        {
-            get
-            {
-                return 1.5f * ScalePercentage;
-            }
-        }
-
         public static void ResetScore()
         {
             _score = 0;
             _escaped = 0;
-            StatsChanged?.Invoke();
+            StatsChanged?.Invoke(null, EventArgs.Empty);
         }
 
         public static void IncrementScore()
         {
             _score += 1;
-            StatsChanged?.Invoke();
+            StatsChanged?.Invoke(null, EventArgs.Empty);
         }
 
         public static void IncrementEscaped()
         {
             _escaped += 1;
-            StatsChanged?.Invoke();
+            StatsChanged?.Invoke(null, EventArgs.Empty);
             if (_escaped >= 5)
             {
-                GameOver?.Invoke();
+                GameOver?.Invoke(null, EventArgs.Empty);
             }
         }
         
         public static void ForceGameOver()
         {
-            GameOver?.Invoke();
+            GameOver?.Invoke(null, EventArgs.Empty);
         }
     }
 }

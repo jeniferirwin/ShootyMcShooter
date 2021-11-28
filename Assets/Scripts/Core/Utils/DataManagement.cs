@@ -99,19 +99,16 @@ namespace Shooty.Core
     public class PrefsData
     {
         public string PlayerName;
-        public bool SeenInstructions;
         public float SFXVolume;
         public float MusicVolume;
 
         public PrefsData(string defaultPlayerName, float defaultVolume)
         {
             PlayerName = defaultPlayerName;
-            SeenInstructions = false;
             SFXVolume = defaultVolume;
             MusicVolume = defaultVolume;
         }
         public void SetPlayerName(string name) => PlayerName = name;
-        public void SetSeenInstructions(bool value) => SeenInstructions = value;
         public void SetSFXVolume(float value) => SFXVolume = value;
         public void SetMusicVolume(float value) => MusicVolume = value;
     }

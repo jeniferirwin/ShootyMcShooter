@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   immediate: 1
-  scene: 1
+  scene: 2
 --- !u!4 &1411786214
 Transform:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ namespace Shooty.UI
 
         private void OnEnable()
         {
-            UpdateScore();
+            UpdateScore(null, EventArgs.Empty);
             RoundData.StatsChanged += UpdateScore;
         }
         
@@ -23,10 +23,11 @@ namespace Shooty.UI
             RoundData.StatsChanged -= UpdateScore;
         }
 
-        private void UpdateScore()
+        private void UpdateScore(object sender, EventArgs e)
         {
+            var currentScale = 1.5f * RoundData.ScalePercentage;
             hits.text = $"Hits: {RoundData.Score}";
-            scale.text = $"Scale: {RoundData.CurrentScale.ToString("#.##")}";
+            scale.text = $"Scale: {currentScale.ToString("#.##")}";
             escapes.text = $"Escaped: {RoundData.Escaped}";
         }
     }

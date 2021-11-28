@@ -7,19 +7,16 @@ namespace Shooty
     {
         [SerializeField] private AudioClip shot;
 
-        private AudioSource source;
-
         private void Awake()
         {
-            var scale = RoundData.CurrentScale;
+            var scale = 1.5f * RoundData.ScalePercentage;
             transform.localScale = new Vector3(scale, scale, scale);
-            source = GameObject.Find("SFXPlayer").GetComponent<AudioSource>();
         }
 
         public void GetShot()
         {
             RoundData.IncrementScore();
-            source.PlayOneShot(shot);
+            Game.SFXPlayer.PlayOneShot(shot);
             Destroy(gameObject);
         }
 

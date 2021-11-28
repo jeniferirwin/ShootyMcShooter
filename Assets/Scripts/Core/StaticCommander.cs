@@ -28,5 +28,22 @@ namespace Shooty.Core
         {
             DataManagement.SaveDataToFile(Game.Data);
         }
+        
+        public static void RDResetScores()
+        {
+            RoundData.ResetScore();
+        }
+        
+        public static void RDSetType(string type)
+        {
+            if (type == "Cube")
+            {
+                RoundData.SetChosenTargetType(TargetType.Cube);
+            }
+            else if (type == "Sphere")
+            {
+                RoundData.SetChosenTargetType(TargetType.Sphere);
+            }
+        }
     }
 }

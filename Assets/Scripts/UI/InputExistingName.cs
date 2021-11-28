@@ -22,5 +22,10 @@ namespace Shooty.UI
             nameText.Select();
             nameText.DeactivateInputField();
         }
+        
+        public void NameDataErased()
+        {
+            nameText.text = Game.DEFAULT_PLAYER_NAME;
+        }
     }
 }

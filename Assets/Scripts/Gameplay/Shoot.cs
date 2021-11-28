@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Shooty.Core;
 
-namespace Shooty
+namespace Shooty.Gameplay
 {
     public class Shoot : MonoBehaviour
     {

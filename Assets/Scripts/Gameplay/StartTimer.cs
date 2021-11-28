@@ -1,40 +1,38 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 using Shooty.Core;
 
-namespace Shooty
+namespace Shooty.Gameplay
 {
     public class StartTimer : MonoBehaviour
     {
         [SerializeField] private int timer;
         [SerializeField] private TMP_Text countdownText;
-        [SerializeField] private GameObject spawners;
+        [SerializeField] private GameObject countdownObject;
+        [SerializeField] private GameObject[] delayedActivation;
 
-        private int _countdown;
-        private float _tick = 1;
-
-        private void Start()
+        private void OnEnable()
         {
-            _countdown = timer;
-            countdownText.text = _countdown.ToString();
             RoundData.ResetScore();
+            countdownObject.SetActive(true);
+            StartCoroutine(DelayedStart());
         }
-        private void Update()
+
+        private IEnumerator DelayedStart()
         {
-            if (_tick > 0)
+            int countdown = timer;
+            while (countdown > 0)
             {
-                _tick -= Time.deltaTime;
-                return;
+                countdownText.text = countdown.ToString();
+                yield return new WaitForSeconds(1);
+                countdown--;
             }
-            if (_countdown > 1)
+            countdownObject.SetActive(false);
+            foreach (var obj in delayedActivation)
             {
-                _tick = 1;
-                _countdown -= 1;
-                countdownText.text = _countdown.ToString();
-                return;
+                obj.SetActive(true);    
             }
-            spawners.SetActive(true);
-            Destroy(gameObject);
         }
     }
 }

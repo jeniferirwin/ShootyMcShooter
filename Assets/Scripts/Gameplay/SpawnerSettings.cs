@@ -56,7 +56,7 @@ namespace Shooty
             RoundData.GameOver -= GameOver;
         }
         
-        private void GameOver()
+        private void GameOver(object sender, EventArgs e)
         {
             gameObject.SetActive(false);
         }
