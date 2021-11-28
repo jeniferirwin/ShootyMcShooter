@@ -7,10 +7,10 @@ namespace Shooty.UI
     {
         public void SetTargetType(string type)
         {
-            PersistentData.TargetType playerTarget = PersistentData.TargetType.Sphere;
-            if (type == "Cube") playerTarget = PersistentData.TargetType.Cube; 
+            TargetType playerTarget = TargetType.Sphere;
+            if (type == "Cube") playerTarget = TargetType.Cube; 
                 
-            PersistentData.SetChosenTargetType(playerTarget);
+            RoundData.SetChosenTargetType(playerTarget);
         }
     }
 }
