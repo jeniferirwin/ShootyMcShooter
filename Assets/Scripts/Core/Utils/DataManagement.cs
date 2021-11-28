@@ -33,7 +33,6 @@ namespace Shooty.Core
         public static void SaveDataToFile(SaveFileData data)
         {
             string rawText = JsonUtility.ToJson(data);
-            Debug.Log(rawText);
             File.WriteAllText(SaveFilePath, rawText);
         }
     }
