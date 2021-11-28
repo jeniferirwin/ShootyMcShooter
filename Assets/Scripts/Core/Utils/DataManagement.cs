@@ -77,7 +77,7 @@ namespace Shooty.Core
         {
             HighScoreSlot slot = new HighScoreSlot(playerName, finalScore);
             Slots.Add(slot);
-            Slots.Sort((x, y) => x.FinalScore.CompareTo(y.FinalScore));
+            Slots.Sort((x, y) => y.FinalScore.CompareTo(x.FinalScore));
             if (Slots.Count > 5)
             {
                 Slots = Slots.GetRange(0, 5);
