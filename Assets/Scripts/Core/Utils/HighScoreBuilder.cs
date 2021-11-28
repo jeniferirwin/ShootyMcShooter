@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class HighScoreBuilder : MonoBehaviour
+namespace Shooty.UI
 {
+    public class HighScoreBuilder : MonoBehaviour
+    {
+    }
 }

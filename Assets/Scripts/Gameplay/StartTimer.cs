@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using Shooty.Core;
+using UnityEngine.InputSystem;
 
 namespace Shooty.Gameplay
 {
@@ -11,6 +12,7 @@ namespace Shooty.Gameplay
         [SerializeField] private TMP_Text countdownText;
         [SerializeField] private GameObject countdownObject;
         [SerializeField] private GameObject[] delayedActivation;
+        [SerializeField] private PlayerInput playerInput;
 
         private void OnEnable()
         {
@@ -33,6 +35,7 @@ namespace Shooty.Gameplay
             {
                 obj.SetActive(true);    
             }
+            playerInput.ActivateInput();
         }
     }
 }

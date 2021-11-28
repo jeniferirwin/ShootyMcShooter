@@ -15,6 +15,7 @@ namespace Shooty.Core
         private static TargetType _chosenType;
         private static int _score;
         private static int _escaped;
+        private static bool _gameOver;
 
         public static void SetChosenTargetType(TargetType type)
         {
@@ -33,27 +34,32 @@ namespace Shooty.Core
         {
             _score = 0;
             _escaped = 0;
+            _gameOver = false;
             StatsChanged?.Invoke(null, EventArgs.Empty);
         }
 
         public static void IncrementScore()
         {
+            if (_gameOver) return;
             _score += 1;
             StatsChanged?.Invoke(null, EventArgs.Empty);
         }
 
         public static void IncrementEscaped()
         {
+            if (_gameOver) return;
             _escaped += 1;
             StatsChanged?.Invoke(null, EventArgs.Empty);
             if (_escaped >= 5)
             {
+                _gameOver = true;
                 GameOver?.Invoke(null, EventArgs.Empty);
             }
         }
         
         public static void ForceGameOver()
         {
+            _gameOver = true;
             GameOver?.Invoke(null, EventArgs.Empty);
         }
     }

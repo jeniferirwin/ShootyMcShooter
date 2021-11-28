@@ -8138,14 +8138,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 4
   gameOverText: {fileID: 159661912}
-  pages:
-  - {fileID: 162275379}
-  - {fileID: 850724753}
-  - {fileID: 1276382192}
-  pagesContainer: {fileID: 540347851}
-  highScores: {fileID: 1640400955}
   gameplay: {fileID: 6220010957841275680}
   endInstructions: {fileID: 6220010958323908711}
+  playerInput: {fileID: 6220010957962085919}
 --- !u!1 &2047632139
 GameObject:
   m_ObjectHideFlags: 0
@@ -8984,6 +8979,7 @@ MonoBehaviour:
   - {fileID: 1372386895}
   - {fileID: 6220010957236604445}
   - {fileID: 6220010957962085913}
+  playerInput: {fileID: 6220010957962085919}
 --- !u!114 &6220010957236604435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9960,9 +9956,9 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1983700454}
-        m_TargetAssemblyTypeName: Shooty.GameOverTimer, Gameplay
+        m_TargetAssemblyTypeName: Shooty.Gameplay.GameOverTimer, Gameplay
         m_MethodName: ForceGameOver
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

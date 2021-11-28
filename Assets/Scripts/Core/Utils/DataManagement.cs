@@ -73,12 +73,15 @@ namespace Shooty.Core
     {
         public List<HighScoreSlot> Slots = new List<HighScoreSlot>();
 
-        public void AddScore(string playerName, float finalScale)
+        public void AddScore(string playerName, int finalScore)
         {
-            HighScoreSlot slot = new HighScoreSlot(playerName, finalScale);
+            HighScoreSlot slot = new HighScoreSlot(playerName, finalScore);
             Slots.Add(slot);
-            Slots.Sort((x, y) => y.FinalScale.CompareTo(x.FinalScale));
-            Slots = Slots.GetRange(0, 5);
+            Slots.Sort((x, y) => x.FinalScore.CompareTo(y.FinalScore));
+            if (Slots.Count > 5)
+            {
+                Slots = Slots.GetRange(0, 5);
+            }
         }
     }
 
@@ -86,12 +89,12 @@ namespace Shooty.Core
     public class HighScoreSlot
     {
         public string PlayerName;
-        public float FinalScale;
+        public int FinalScore;
 
-        public HighScoreSlot(string name, float scale)
+        public HighScoreSlot(string name, int score)
         {
             PlayerName = name;
-            FinalScale = scale;
+            FinalScore = score;
         }
     }
 
