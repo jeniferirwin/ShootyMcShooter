@@ -45,5 +45,10 @@ namespace Shooty.Core
                 RoundData.SetChosenTargetType(TargetType.Sphere);
             }
         }
+        
+        public static void MMQuit()
+        {
+            Application.Quit();
+        }
     }
 }
